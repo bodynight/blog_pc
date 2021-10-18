@@ -1,0 +1,43 @@
+<h3><%= @article.title %></h3>
+<p>
+    <%= @article.text %>
+</p>
+<p><i>Author: <%= @article.articlename%> at created: <%= @article.created_at%></i></p>
+<br/>
+<% if user_signed_in? && @article.articlename == current_user.username %>
+  <p><%= link_to 'Edit', edit_article_path(@article) %>|
+  <%= link_to 'Destroy', article_path(@article), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+<% end %>
+<h4>Comments:</h4>
+
+<p>
+  <% @article.comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <p><i>Said <%= comment.author %> at <%= comment.created_at %></i></p>
+    <hr/>
+  <% end %>
+
+</p>
+
+<% if user_signed_in? %>
+<!--   <h4>Add comment</h4>
+ -->    <%= form_for ([@article, @article.comments.build]) do |f| %>
+     
+      <!-- <p> 
+        <%= f.label :author %> <br />
+        <%= f.text_field :author %>
+      </p> -->
+
+      <p>
+<!--   <%= f.label :body %> <br />
+ -->    <%= f.text_area :body, class: "form-control form-control-sm", placeholder: "Your comment" %>
+      </p>
+
+      <%= f.submit 'Enter comment', class: "btn btn-primary" %>
+      <%  end %>
+<% else %>
+  <p>
+      Please <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Registered", new_user_registration_path %> to leave comments
+  </p>
+  
+<% end %>
