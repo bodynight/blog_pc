@@ -9,8 +9,8 @@ feature "Contact creation" do
 
   scenario "allows a guest to create contact" do
     visit '/contacts'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Message', with: 'caplin'
+    fill_in 'contact_email', with: 'user@example.com'
+    fill_in 'contact_message', with: 'caplin'
     click_button 'Send Message'
 
     expect(page).to have_content 'Thanks!'
