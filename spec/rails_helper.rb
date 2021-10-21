@@ -71,5 +71,6 @@ Shoulda::Matchers.configure do |config|
 end
 
 require 'support/factory_bot'
+require 'capybara/rails'
 
 
