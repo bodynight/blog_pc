@@ -13,15 +13,15 @@
 <% end %>
 
   <p>
-    <%= f.label :email %> <br />
-    <%= f.text_field :email %>
+    <%= f.label :email, class: "form-label" %> <br />
+    <%= f.text_field :email, class: "form-control form-control-sm" %>
   </p>
 
   <p>
-    <%= f.label :message %> <br />
-    <%= f.text_area :message %>
+    <%= f.label :message, class: "form-label" %> <br />
+    <%= f.text_area :message, class: "form-control form-control-sm" %>
   </p>
 
-  <%= f.submit 'Send Message' %>
+  <%= f.submit 'Send Message', class: "btn btn-primary" %>
 
 <%  end %>
