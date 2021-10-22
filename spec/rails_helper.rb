@@ -72,5 +72,5 @@ end
 
 require 'support/factory_bot'
 require 'capybara/rails'
-
+require 'support/session_helper'
 
