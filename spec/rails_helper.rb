@@ -70,7 +70,8 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+# require 'database_cleaner'
 require 'support/factory_bot'
 require 'capybara/rails'
 require 'support/session_helper'
-
+require 'support/database_cleaner'
